@@ -12,5 +12,5 @@ Réalisation: Créer un diagramme de cas d’utilisation pour les différentes f
 - Déployer le site en ligne (lien du site) 
 - Diagramme de cas d’utilisation et/ou use stories : https://drive.google.com/file/d/1nc6D-QLFR8i_2Rf6z7LWqQskD69PgL0F/view?usp=sharing
 - Diagramme de classe 
-- Maquettes 
+- Maquettes : https://www.figma.com/file/WphEeIoZCTgdaOzH2vkavu/cutecatsblog?node-id=0%3A1&t=prL2vDYeWpJt9MVt-1
 - Lien Github.
