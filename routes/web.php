@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Route pour afficher la page d'accueil
-Route::get("/", [App\Http\Controllers\HomeController::class, "index"]);
+Route::get("/", [HomeController::class, "index"]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
