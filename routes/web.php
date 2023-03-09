@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Page d'accuei de Laravel
+// Page d'accueil de Laravel
 Route::get('/', function () {
     return view('welcome');
 });
