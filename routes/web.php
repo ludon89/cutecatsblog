@@ -21,7 +21,9 @@ Route::get('/', function () {
 });
 
 // Route pour afficher la page d'accueil
-Route::get("/index", [HomeController::class, "index"]);
+Route::get("/index", function () {
+    return view('index');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
