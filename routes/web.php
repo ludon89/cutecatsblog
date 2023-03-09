@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+// Page d'accuei le Laravel
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route pour afficher la page d'accueil
 Route::get("/index", [HomeController::class, "index"]);
