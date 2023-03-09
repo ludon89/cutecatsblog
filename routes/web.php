@@ -23,7 +23,7 @@ Route::get('/', function () {
 // Route pour afficher la page d'accueil
 Route::get("/index", function () {
     return view('index');
-});
+})->name("index");
 
 Route::get('/dashboard', function () {
     return view('dashboard');
