@@ -21,7 +21,7 @@ class PostFactory extends Factory
             "title" => $this->faker->sentence(),
             "content" => $this->faker->text(),
             "picture" => $this->faker->url(),
-            "user_id" => rand(1, 5),
+            "user_id" => rand(1, 3),
         ];
     }
 }
