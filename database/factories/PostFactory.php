@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,8 @@ class PostFactory extends Factory
         return [
             "title" => $this->faker->sentence(),
             "content" => $this->faker->text(),
-            "picture" => $this->faker->url()
+            "picture" => $this->faker->url(),
+            "user_id" => rand(1, 5),
         ];
     }
 }
