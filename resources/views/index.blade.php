@@ -10,6 +10,10 @@
 
     <!-- main content -->
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-        <p>Yo la mif</p>
+        @foreach ($posts as $post)
+            <h1>{{ $post->title }}</h1>
+            <p>Par {{ $post->user->name }} le {{ $post->created_at->format('j M Y, g:i a') }}</p>
+            <hr>
+        @endforeach
     </div>
 </x-app-layout>
