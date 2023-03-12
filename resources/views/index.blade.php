@@ -16,8 +16,14 @@
     </div>
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
         @foreach ($posts as $post)
-            <h1>{{ $post->title }}</h1>
-            <p>Par {{ $post->user->name }} le {{ $post->created_at->format('j M Y, g:i a') }}</p>
+            <div class="pb-6">
+                <h1>{{ $post->title }}</h1>
+                <p>Par {{ $post->user->name }} le {{ $post->created_at->format('j M Y, g:i a') }}</p>
+                @if ($post->user->is(auth()->user()))
+                    <a href="{{ route('edit', $post) }}">Modifier</a>
+                    <a href="#">Supprimer</a>
+                @endif
+            </div>
             <hr>
         @endforeach
     </div>
