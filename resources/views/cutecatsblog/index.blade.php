@@ -20,7 +20,7 @@
                 <h1>{{ $post->title }}</h1>
                 <p>Par {{ $post->user->name }} le {{ $post->created_at->format('j M Y, g:i a') }}</p>
                 @if ($post->user->is(auth()->user()))
-                    <a href="{{ route('edit', $post) }}">Modifier</a>
+                    <a href="{{ route('cutecatsblog.edit', $post) }}">Modifier</a>
                     <a href="#">Supprimer</a>
                 @endif
             </div>
@@ -38,7 +38,7 @@
                 Nouvel article :
             </h1>
             <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('cutecatsblog.store') }}">
                     @csrf
                     <label for="title">Titre :</label><br>
                     <input type="text" name="title" id="title"

@@ -22,12 +22,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-// Route pour afficher la page d'accueil
-// Route::get("/", function () {
-//     return view('index');
-// })->name("index");
-
-// Route::get("/", [PostController::class, "index"])->name("index");
+Route::get("/", [PostController::class, "index"])->name("index");
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -39,6 +34,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource("/", PostController::class);
+Route::resource("/cutecatsblog", PostController::class);
 
 require __DIR__ . '/auth.php';

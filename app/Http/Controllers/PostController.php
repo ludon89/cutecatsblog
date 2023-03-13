@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index(): View
     {
-        return view("index", [
+        return view("cutecatsblog.index", [
             "posts" => Post::with("user")->latest()->get(),
         ]);
 
@@ -61,9 +61,9 @@ class PostController extends Controller
     public function edit(Post $post): View
     {
         // dd($post);
-        $this->authorize("update", $post);
+        // ! $this->authorize("update", $post);
 
-        return view("edit", [
+        return view("cutecatsblog.edit", [
             "post" => $post
         ]);
     }
