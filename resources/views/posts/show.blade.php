@@ -11,12 +11,14 @@
                 <h1>
                     {{ $post->title }}
                 </h1>
-                {{-- <p>
+                <p>
                     Par {{ $post->user->name }} le {{ $post->created_at->format('j M Y, g:i a') }}
-                </p> --}}
+                </p>
                 <p>
                     {{ $post->content }}
                 </p>
+                <hr>
+                <a href="{{ route('index') }}">Retour</a>
             </div>
         </div>
     </div>

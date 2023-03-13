@@ -21,6 +21,7 @@
                               class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">{{ old('content', $post->content) }}</textarea>
                     <x-input-error :messages="$errors->get('message')" class="mt-2" />
                     <x-primary-button class="mt-4">{{ __('Publier') }}</x-primary-button>
+                    <a href="{{ route('index') }}">Retour</a>
                 </form>
             </div>
         </div>
