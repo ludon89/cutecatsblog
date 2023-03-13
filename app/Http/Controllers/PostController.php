@@ -50,9 +50,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Post $post): View
     {
-        //
+        return view("cutecatsblog.show", compact("post"));
     }
 
     /**
@@ -61,7 +61,7 @@ class PostController extends Controller
     public function edit(Post $post): View
     {
         // dd($post);
-        // ! $this->authorize("update", $post);
+        // $this->authorize("update", $post);
 
         return view("cutecatsblog.edit", [
             "post" => $post
@@ -87,8 +87,12 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post): RedirectResponse
     {
-        //
+        // $this->authorize("delete", $post);
+
+        $post->delete();
+
+        return redirect(route("index"));
     }
 }

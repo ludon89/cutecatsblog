@@ -17,11 +17,20 @@
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
         @foreach ($posts as $post)
             <div class="pb-6">
-                <h1>{{ $post->title }}</h1>
+                <h1>
+                    <a href="{{ route('cutecatsblog.show', $post) }}">
+                        {{ $post->title }}
+                    </a>
+                </h1>
                 <p>Par {{ $post->user->name }} le {{ $post->created_at->format('j M Y, g:i a') }}</p>
                 @if ($post->user->is(auth()->user()))
                     <a href="{{ route('cutecatsblog.edit', $post) }}">Modifier</a>
-                    <a href="#">Supprimer</a>
+                    <form method="POST" action="{{ route('cutecatsblog.destroy', $post->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <a href="{{ route('cutecatsblog.destroy', $post) }}"
+                           onclick="event.preventDefault(); this.closest('form').submit();">Supprimer</a>
+                    </form>
                 @endif
             </div>
             <hr>
@@ -37,14 +46,14 @@
             <h1 class="font-semibold text-xl text-gray-800 leading-tight">
                 Nouvel article :
             </h1>
-            <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
+            <div class="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8">
                 <form method="POST" action="{{ route('cutecatsblog.store') }}">
                     @csrf
                     <label for="title">Titre :</label><br>
                     <input type="text" name="title" id="title"
                            class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
                     <label for="content">Article :</label>
-                    <textarea name="content" id="content"
+                    <textarea name="content" id="content" rows=10
                               class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
                     <x-input-error :messages="$errors->get('message')" class="mt-2" />
                     <x-primary-button class="mt-4">{{ __('Publier') }}</x-primary-button>
