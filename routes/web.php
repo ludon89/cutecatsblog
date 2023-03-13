@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource("/cutecatsblog", PostController::class);
+Route::resource("cutecatsblog", PostController::class, ["parameters" => [
+    "post" => "id"
+]]);
 
 require __DIR__ . '/auth.php';
