@@ -25,7 +25,7 @@
                 <p>Par {{ $post->user->name }} le {{ $post->created_at->format('j M Y, g:i a') }}</p>
                 @if ($post->user->is(auth()->user()))
                     <a href="{{ route('posts.edit', $post) }}">Modifier</a>
-                    <form method="POST" action="{{ route('posts.destroy', $post->id) }}">
+                    <form method="POST" action="{{ route('posts.destroy', $post) }}">
                         @csrf
                         @method('DELETE')
                         <a href="{{ route('posts.destroy', $post) }}"
