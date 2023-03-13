@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index(): View
     {
-        return view("cutecatsblog.index", [
+        return view("posts.index", [
             "posts" => Post::with("user")->latest()->get(),
         ]);
 
@@ -52,7 +52,7 @@ class PostController extends Controller
      */
     public function show(Post $post): View
     {
-        return view("cutecatsblog.show", compact("post"));
+        return view("posts.show", compact("post"));
     }
 
     /**
@@ -60,10 +60,9 @@ class PostController extends Controller
      */
     public function edit(Post $post): View
     {
-        // dd($post);
-        // $this->authorize("update", $post);
+        $this->authorize("update", $post);
 
-        return view("cutecatsblog.edit", [
+        return view("posts.edit", [
             "post" => $post
         ]);
     }
@@ -76,6 +75,7 @@ class PostController extends Controller
         $this->authorize("update", $post);
 
         $validated = $request->validate([
+            'title' => 'required|string|max:255',
             'content' => 'required|string|max:10000',
         ]);
 
