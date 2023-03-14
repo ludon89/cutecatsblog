@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -35,5 +36,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource("posts", PostController::class);
+
+Route::resource("comments", CommentController::class);
 
 require __DIR__ . '/auth.php';
